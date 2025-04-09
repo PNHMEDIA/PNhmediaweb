@@ -4661,6 +4661,95 @@ body {
     justify-content: center;
   }
 }
+/* Remove entrance animations by setting initial states visible */
+.tech-item {
+  opacity: 1 !important; /* Remove fade-in animation */
+  transform: translateY(0) !important; /* Remove slide-up animation */
+  transition: all 0.3s ease; /* Keep only the transition for hover */
+}
+
+/* Keep only the hover animation */
+.tech-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #ffffff;
+  transform: translateY(-5px);
+}
+
+/* Keep entrance animation */
+.tech-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tech-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Remove hover animations */
+.tech-item:hover {
+  transform: none !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.member-image img{
+  width: 20rem;
+  height: auto;
+}
+/* Make team cards bigger with better image fitting */
+.team-grid {
+  grid-template-columns: repeat(3, 1fr); /* Reduce from 4 to 3 columns for larger cards */
+  gap: 40px; /* Increase spacing between cards */
+}
+
+.team-member {
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Improve image container */
+.member-image-container {
+  height: 360px; /* Fixed height instead of percentage padding */
+  padding-top: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Center the image better */
+.member-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio while filling container */
+  object-position: center top; /* Prioritize the top of the image (face) */
+}
+
+/* Fix hover transformation */
+.team-member:hover .member-image {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Enhance content area */
+.member-info {
+  padding: 30px;
+}
+
+.member-name {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.member-position {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
 
 
     </style>
@@ -4713,19 +4802,20 @@ body {
         </div>
         <nav class="nav-menu">
             <ul>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Team</a></li>
-                <li><a href="#">Case Studies</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">EN</a></li>
+                
+                <li><a href="#stats">Stats</a></li>
+                <li><a href="#web-development">Website Development</a></li>
+                <li><a href="#digital-marketing">Digital Merketing</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#clients">Clients</a></li>
+               
             </ul>
         </nav>
+        
     </header>
 
-    <section class="hero-content">
+    <section class="hero-content" id="hero">
         <h2 class="hero-title">PNH MEDIA is a cutting-edge digital marketing agency driving exceptional growth</h2>
         <a href="#" class="cta-button">
             <span class="dot"></span>
@@ -4742,7 +4832,7 @@ body {
 
 
 <!-- Marketing Grid Section -->
-<section class="marketing-grid-section">
+<section class="marketing-grid-section" id="stats">
     <div class="grid-container">
       <!-- Header Section -->
       <div class="grid-item heading span-12 mobile-priority-1">
@@ -4846,7 +4936,7 @@ body {
 
 
     
-    <section class="services-section">
+    <section class="services-section" id="web-development">
         <div class="container">
           <!-- Section header -->
           <div class="section-header">
@@ -5258,7 +5348,7 @@ body {
     
 
     <!-- Glass Features Section -->
-<section class="glass-features">
+<section class="glass-features" id="digital-marketing">
     <div class="glass-bg-shape shape-1"></div>
     <div class="glass-bg-shape shape-2"></div>
     
@@ -5363,7 +5453,7 @@ body {
 
 
     <!-- CTA Section -->
-<section class="cta-section">
+<section class="cta-section" id="contact">
     <div class="cta-background"></div>
     <div class="container">
       <div class="cta-container">
@@ -5405,7 +5495,7 @@ body {
 
 
   <!-- Team Section -->
-<section class="team-section">
+<section class="team-section" id="team">
     <div class="container">
       <!-- Section header -->
       <div class="section-header">
@@ -5422,7 +5512,7 @@ body {
         <div class="team-member">
           <div class="member-image-container">
             <div class="member-image">
-              <div class="member-image-placeholder"></div>
+              <img src="https://i.postimg.cc/q7S7kwxq/Screenshot-2025-04-09-at-23-18-56.png">
             </div>
             <div class="member-social">
               <a href="#" class="social-link">
@@ -5447,9 +5537,9 @@ body {
             </div>
           </div>
           <div class="member-info">
-            <h3 class="member-name">John Doe</h3>
-            <p class="member-position">Creative Director</p>
-            <p class="member-bio">With over 15 years of experience in digital marketing, John leads our creative initiatives.</p>
+            <h3 class="member-name">Pavol Nemeth</h3>
+            <p class="member-position">CEO</p>
+            <p class="member-bio">With over 6 years experience in digital marketing, certificate Meta and Google ads. </p>
           </div>
         </div>
         
@@ -5457,7 +5547,7 @@ body {
         <div class="team-member">
           <div class="member-image-container">
             <div class="member-image">
-              <div class="member-image-placeholder"></div>
+              <img src="https://i.postimg.cc/zfCJrNvt/Screenshot-2025-04-09-at-23-23-54.png">
             </div>
             <div class="member-social">
               <a href="#" class="social-link">
@@ -5482,7 +5572,7 @@ body {
             </div>
           </div>
           <div class="member-info">
-            <h3 class="member-name">Sarah Smith</h3>
+            <h3 class="member-name">Jakub Zítko</h3>
             <p class="member-position">Lead Developer</p>
             <p class="member-bio">Sarah brings technical expertise and innovation to our development team.</p>
           </div>
@@ -5492,7 +5582,7 @@ body {
         <div class="team-member">
           <div class="member-image-container">
             <div class="member-image">
-              <div class="member-image-placeholder"></div>
+              <img src="https://i.postimg.cc/kGQJndTX/Screenshot-2025-04-09-at-23-24-21.png">
             </div>
             <div class="member-social">
               <a href="#" class="social-link">
@@ -5517,46 +5607,14 @@ body {
             </div>
           </div>
           <div class="member-info">
-            <h3 class="member-name">Michael Chen</h3>
+            <h3 class="member-name">Dominik Pavel Abraham</h3>
             <p class="member-position">SEO Specialist</p>
             <p class="member-bio">Michael specializes in search engine optimization and digital marketing strategy.</p>
           </div>
         </div>
         
         <!-- Team Member 4 -->
-        <div class="team-member">
-          <div class="member-image-container">
-            <div class="member-image">
-              <div class="member-image-placeholder"></div>
-            </div>
-            <div class="member-social">
-              <a href="#" class="social-link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                  <rect x="2" y="9" width="4" height="12"></rect>
-                  <circle cx="4" cy="4" r="2"></circle>
-                </svg>
-              </a>
-              <a href="#" class="social-link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                </svg>
-              </a>
-              <a href="#" class="social-link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div class="member-info">
-            <h3 class="member-name">Emily Johnson</h3>
-            <p class="member-position">UI/UX Designer</p>
-            <p class="member-bio">Emily creates beautiful, intuitive user interfaces that drive engagement.</p>
-          </div>
-        </div>
+        
       </div>
     </div>
   </section>
@@ -5567,7 +5625,7 @@ body {
 
 <h3 class="horizontal-section-title" id="bottom-section-title">Our Clients</h3>
 
-<div class="container-bottom" id="horizontal-container-bottom">
+<div class="container-bottom" id="horizontal-container-bottom" >
   <div class="container-scroll-bottom" id="horizontal-scroll-bottom">
     <section class="hero hero--event item-bottom">
       <div class="hero__first">
@@ -5583,7 +5641,7 @@ body {
           <img src="https://i.postimg.cc/pXYYy6PF/Screenshot-2025-04-07-at-0-41-14.png" alt="" style="height: 400px;">
         </div>
         <div class="hero__col">
-          <video src="" type="video/mp4">
+          <img src="https://i.postimg.cc/25L1ByG0/Screenshot-2025-04-09-at-23-34-14.png" alt="" style="height: 400px;">
         </div>
       </div>
     </section>
@@ -5598,11 +5656,11 @@ body {
         </div>
       </div>
       <div class="hero__second">
-        <div class="hero__col hero__text">
-          <h2><a href="#0">Events</a></h2>
+        <div class="hero__col">
+          <img src="https://i.postimg.cc/8kmjvqdg/Screenshot-2025-04-09-at-23-35-49.png" style="height: 400px;">
         </div>
         <div class="hero__col">
-          <p>Image</p>
+          <img src="https://i.postimg.cc/90C0Sphk/Screenshot-2025-04-09-at-23-35-18.png" style="height: 400px;"> 
         </div>
       </div>
     </section>
@@ -5618,10 +5676,10 @@ body {
       </div>
       <div class="hero__second">
         <div class="hero__col hero__pattern">
-          <p>Image</p>
+          <img src="https://i.postimg.cc/4N4nQBw7/Screenshot-2025-04-09-at-23-37-16.png" style="height: 400px;">
         </div>
         <div class="hero__col">
-          <p>Image</p>
+          <img src="https://i.postimg.cc/t4wTyybW/Screenshot-2025-04-09-at-23-37-46.png" style="height: 400px;">
         </div>
       </div>
     </section>
@@ -6752,6 +6810,20 @@ function fixHorizontalScrollForMobile() {
     ScrollTrigger.refresh();
   }
 }
+// Simple scroll detection for tech items
+window.addEventListener('scroll', function() {
+  const techItems = document.querySelectorAll('.tech-item');
+  const techSection = document.querySelector('.tech-stack');
+  
+  if (techSection.getBoundingClientRect().top < window.innerHeight * 0.75) {
+    techItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add('visible');
+      }, index * 100); // Staggered animation
+    });
+  }
+});
+
     </script>
 </body>
 </html>
